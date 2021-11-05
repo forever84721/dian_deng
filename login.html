@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #E9E3DB;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 104px;
+      background-image: url("./images/bar.png");
+      background-repeat: repeat;
+      /* object-fit: cover; */
+      z-index: 1000;
+    }
+
+    .header-title {
+      height: 80px;
+      color: #F2EFE4;
+      font-size: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      padding-top: 104px;
+    }
+
+    .login-root {
+      position: relative;
+      background-image: url("./images/left-bottom-cloud.png"),
+        url("./images/right-bottom-cloud.png"),
+        url("./images/left-top-flower.png"),
+        url("./images/left-flower.png"),
+        url("./images/right-flower.png"),
+        url("./images/right-bottom-flower.png"),
+        url("./images/left-bird.png");
+      background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, fixed;
+      background-position: left bottom, right bottom, left 50px, 100px 500px, right 300px, right 100px bottom, 200px 200px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-size: 30vw, 30vw, 100px, 100px, 80px, 100px, 150px;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      /* padding-top: 25px; */
+      min-height: calc(100vh - 104px);
+    }
+
+    .left-bottom-cloud {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      max-width: 35vw;
+    }
+
+    .right-bottom-cloud {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      max-width: 35vw;
+    }
+
+    .logo {
+      max-width: 350px;
+    }
+
+    .logo-cloud {
+      position: absolute;
+      right: -85px;
+      top: 0;
+      width: 200px;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      height: 35px;
+      font-weight: bold;
+    }
+
+    .input-group input {
+      border: none;
+      background-color: #FFEEDE;
+      font-size: 18px;
+      width: 200px;
+      padding: 5px;
+    }
+
+    .input-group input:focus-visible {
+      outline: none;
+    }
+
+    .login-button {
+      border: none;
+      background: url("./images/login-button.png");
+      background-size: 280px 60px;
+      width: 280px;
+      height: 60px;
+      color: #E9C26E;
+      font-size: 28px;
+    }
+
+    .dividing-container {
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      width: 360px;
+    }
+
+    .dividing-line {
+      border: 1px solid #000000;
+      opacity: 1;
+      width: 33%;
+      /* flex-basis: 0; */
+      flex-grow: 1;
+      /* max-width: 100%; */
+    }
+
+    .dividing-text {
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 0px;
+      padding: 0 10px;
+    }
+
+    .login-method-group {
+      padding-top: 20px;
+      width: 360px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .login-method-group>img {
+      width: 50px;
+    }
+
+    @media (max-width: 575.98px) {
+      .login-root {
+        position: relative;
+        background-image:
+          url("./images/left-top-flower.png"),
+          url("./images/left-flower.png"),
+          url("./images/right-flower.png"),
+          url("./images/right-bottom-flower.png"),
+          url("./images/left-bird.png");
+        background-attachment: fixed, fixed, fixed, fixed;
+        background-position: left 50px, 100px 500px, right 300px, right 100px bottom, 10px 380px;
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+        background-size: 100px, 100px, 80px, 100px, 60px;
+      }
+
+      .logo {
+        max-width: 350px;
+      }
+
+      .logo-cloud {
+        position: absolute;
+        right: -30px;
+        top: 20px;
+        width: 140px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header-title">登錄</div>
+  </header>
+  <main>
+
+    <div class="login-root">
+      <!-- <img src="./images/left-bottom-cloud.png" alt="left-bottom-cloud" class="left-bottom-cloud" style="">
+        <img src="./images/right-bottom-cloud.png" alt="right-bottom-cloud" class="right-bottom-cloud"> -->
+      <div style="position: relative;padding-top: 25px;">
+        <img src="./images/logo.png" alt="logo" class="logo">
+        <img src="./images/logo-cloud.png" alt="logo-cloud" class="logo-cloud">
+      </div>
+
+      <div class="input-group" style="padding-top: 20px;">
+        <div style="width: 120px;text-align: center;">
+          <select name="" id="">
+            <option value="1">+886台灣1</option>
+            <option value="2">+886台灣2</option>
+            <option value="3">+886台灣3</option>
+          </select>
+        </div>
+        <div>
+          <input type="text">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div style="width: 120px;text-align: center;">
+          <label for="">密碼</label>
+        </div>
+        <div>
+          <input type="password">
+        </div>
+      </div>
+
+      <div style="padding-top: 20px;text-align: center;">
+        <button class="login-button">登錄</button>
+      </div>
+
+      <div style="display: flex;width: 280px;font-weight: bold;padding-top: 5px;">
+        <span>忘記密碼</span>
+        <span style="margin-left: auto;">免費註冊</span>
+
+      </div>
+      <div class="dividing-container">
+        <div class="dividing-line col"></div>
+        <span class="dividing-text">其他登錄方式</span>
+        <div class="dividing-line col"></div>
+      </div>
+
+
+      <div class="login-method-group">
+        <!-- <div>123</div>
+        <div>456</div>
+        <div>789</div> -->
+        <div style="width: 105px;text-align: center;">
+          <img src="./images/wechat.png" alt="wechat">
+        </div>
+        <div style="width: 105px;text-align: center;">
+          <img src="./images/line.png" alt="line">
+        </div>
+        <div style="width: 105px;text-align: center;">
+          <img src="./images/fb.png" alt="fb">
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+
+
+</body>
+
+</html>
