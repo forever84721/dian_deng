@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <style>
     *::selection {
       background-color: #913D02;
@@ -137,6 +138,72 @@
       width: 50px;
     }
 
+
+
+    .custom-select {
+      position: relative;
+      width: 100%;
+      text-align: left;
+      outline: none;
+      height: 47px;
+      line-height: 47px;
+    }
+
+    .custom-select .selected {
+      /* background-color: none; */
+      /* border-radius: 6px; */
+      /* border: 1px solid #666666; */
+      color: #000000;
+      padding-left: 1em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .custom-select .selected.open {
+      /* border: 1px solid #ad8225; */
+      border-radius: 6px 6px 0px 0px;
+    }
+
+    .custom-select .selected:after {
+      position: absolute;
+      content: "";
+      top: 22px;
+      right: 1em;
+      width: 0;
+      height: 0;
+      border: 5px solid transparent;
+      border-color: #000000 transparent transparent transparent;
+    }
+
+    .custom-select .items {
+      color: #000000;
+      border-radius: 0px 0px 6px 6px;
+      overflow: hidden;
+      /* border-right: 1px solid #ad8225;
+      border-left: 1px solid #ad8225;
+      border-bottom: 1px solid #ad8225; */
+      position: absolute;
+      background-color: #913D02;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    .custom-select .items div {
+      color: #000000;
+      padding-left: 1em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .custom-select .items div:hover {
+      background-color: #ad8225;
+    }
+
+    .selectHide {
+      display: none;
+    }
+
     @media (max-width: 575.98px) {
       .login-root {
         position: relative;
@@ -179,7 +246,7 @@
   <header class="header">
     <div class="header-title">登錄</div>
   </header>
-  <main>
+  <main id="app">
 
     <div class="login-root">
       <!-- <img src="./images/left-bottom-cloud.png" alt="left-bottom-cloud" class="left-bottom-cloud" style="">
@@ -191,11 +258,25 @@
 
       <div class="input-group" style="padding-top: 20px;">
         <div style="width: 120px;text-align: center;">
-          <select name="" id="">
+          <!-- <select name="" id="">
             <option value="1">+886台灣1</option>
             <option value="2">+886台灣2</option>
             <option value="3">+886台灣3</option>
-          </select>
+          </select> -->
+          <div class="custom-select" @blur="open = false">
+            <div class="selected" :class="{ open: open }" @click="open = !open">
+              {{ selected }}
+            </div>
+            <div class="items" :class="{ selectHide: !open }">
+              <div v-for="(option, i) of options" :key="i" @click="
+                  selected = option;
+                  open = false;
+                  $emit('input', option);
+                ">
+                {{ option }}
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <input type="text">
@@ -245,8 +326,28 @@
     </div>
   </main>
 
+  <script>
+    new Vue({
+      el: '#app',
+      created() { },
+      data: function () {
+        var v = this;
+        return {
+          options: ['+886 台灣', '+86 中國'],
+          default: '+886 台灣',
+          selected: '+886 台灣',
+          open: false,
+        };
+      },
+      methods: {
+        clear1: function () {
+        },
 
-
+      },
+      watch: {
+      }
+    });
+  </script>
 
 </body>
 

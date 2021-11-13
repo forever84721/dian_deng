@@ -85,6 +85,8 @@
       border: none;
       border-bottom: #943F01 1px solid;
       padding-bottom: 2px;
+      /* display: flex; */
+      position: relative;
     }
 
     .search-input {
@@ -103,12 +105,29 @@
     .region1 {
       text-align: center;
       letter-spacing: 5px;
+      border-radius: 5px;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .region1:hover {
+      background-color: #862400;
+      color: #DCAD5F;
     }
 
     .region2 {
       text-align: center;
       letter-spacing: 5px;
+      border-radius: 5px;
+      padding: 5px;
+      cursor: pointer;
     }
+
+    .region2:hover {
+      background-color: #862400;
+      color: #DCAD5F;
+    }
+
 
     .back-button {
       border: none;
@@ -150,7 +169,12 @@
     <div class="page-root">
       <div class="temple-search-container">
         <div class="search-input-container">
-          <input type="text" class="search-input">
+          <input type="text" class="search-input" v-model="searchText">
+          <div v-if="!searchText"
+            style="position: absolute;user-select: none;pointer-events: none;display: flex;align-items: center;justify-content: center;width: 350px;bottom:5px;">
+            <img src="./images/magnifier.png" alt="magnifier" style="width: 24px;">
+            <span style="color: #adadad;font-size: 24px;margin-left: 15px;word-spacing: 15px;">請 輸 入 寺 廟 名 稱</span>
+          </div>
         </div>
         <div
           style="height: 100px;display: flex;justify-content: center;align-items: center;font-weight: bold;font-size: 24px;">
@@ -208,8 +232,6 @@
   </main>
 
 
-
-
   <script>
     new Vue({
       el: '#app',
@@ -217,6 +239,7 @@
       data: function () {
         var v = this;
         return {
+          searchText: ''
         };
       },
       methods: {
