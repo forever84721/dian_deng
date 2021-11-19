@@ -182,12 +182,14 @@
           <div style="font-weight: bold;font-size: 18px;padding: 0 10px;">台中市西屯區中清路二中清路二段135號</div>
         </div>
 
-        <div style="display: flex;padding: 5px 0;">
+        <div style="display: flex;padding: 5px 0;align-items: center;">
           <div style="font-weight: bold;font-size: 18px;padding: 0 10px;min-width: 75px;">點燈服務</div>
-          <div style="font-weight: bold;font-size: 18px;padding: 0 10px;">藥師燈</div>
+          <div v-for="light in lights"
+            style="font-weight: bold;font-size: 18px;color: #AD6C53;padding: 2px 15px;margin: 0 5px;background-image: url(./images/title-border.png);background-size:100% 100%;">
+            {{light}}</div>
         </div>
 
-        <div style="font-weight: bold;font-size: 14px;padding: 0 10px;">《文玄企業》 （一）線上點燈，瞬間尋燈。 點燈註冊後，立即可以在手機尋得自己註明的燈位。
+        <div style="font-weight: bold;font-size: 14px;padding: 10px 10px;">《文玄企業》 （一）線上點燈，瞬間尋燈。 點燈註冊後，立即可以在手機尋得自己註明的燈位。
           （二）每周三、四整日，僧人唸誦普賢行《文玄企業》 （一）線上點燈，瞬間尋燈。 點燈註冊後，立即可以在手機尋得自己註明的燈位。
           （二）每周三、四整日，僧人唸誦普賢行《文玄企業》 （一）線上點燈，瞬間尋燈。 點燈註冊後，立即可以在手機尋得自己註明的燈位。 （二）每周三、四整日，僧人唸誦普賢行《文玄企業》 （一）線上點燈，瞬間尋燈。
           點燈註冊後，立即可以在手機尋得自己註明的燈位。 （二）每周三、四整日，僧人唸誦普賢行《文玄企業》 （一）線上點燈，瞬間尋燈。 點燈註冊後，立即可以在手機尋得自己註明的燈位。 （二）每周三、四整日，僧人唸誦普賢行
@@ -208,6 +210,7 @@
           default: '+886 台灣',
           selected: '+886 台灣',
           open: false,
+          lights: ['藥師燈', '佛祖燈', '太歲燈', '懺悔燈', '藥師展示燈']
         };
       },
       methods: {
