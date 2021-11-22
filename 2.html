@@ -50,6 +50,8 @@
 
     main {
       padding-top: 104px;
+      /* padding-bottom: 60px; */
+      /* min-height: calc(100vh - 104px + 60px); */
     }
 
     .root {
@@ -78,7 +80,6 @@
     }
 
     .dividing-container {
-      /* padding-top: 20px; */
       margin: 20px 0;
       display: flex;
       align-items: center;
@@ -108,6 +109,39 @@
       align-items: center;
       margin: 0px -30px;
       height: 400px;
+    }
+
+
+    .login-button {
+      border: none;
+      background: url("./images/login-button.png");
+      background-size: 280px 60px;
+      width: 280px;
+      height: 60px;
+      color: #E9C26E;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .footer-menu-container {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 60px;
+    }
+
+    .footer-menu {
+      display: flex;
+      justify-content: center;
+      max-width: 1000px;
+      width: 100%;
     }
 
     @media (max-width: 575.98px) {
@@ -142,6 +176,21 @@
         height: 250px;
       }
 
+      .button-group {
+        flex-direction: column;
+        /* justify-content: space-around; */
+        /* justify-content: center; */
+        align-items: center;
+      }
+
+      .dividing-container {
+
+        margin: 10px 0;
+      }
+
+      .login-button {
+        margin: 10px;
+      }
     }
   </style>
 </head>
@@ -182,11 +231,14 @@
           <div style="font-weight: bold;font-size: 18px;padding: 0 10px;">台中市西屯區中清路二中清路二段135號</div>
         </div>
 
-        <div style="display: flex;padding: 5px 0;align-items: center;">
-          <div style="font-weight: bold;font-size: 18px;padding: 0 10px;min-width: 75px;">點燈服務</div>
-          <div v-for="light in lights"
-            style="font-weight: bold;font-size: 18px;color: #AD6C53;padding: 2px 15px;margin: 0 5px;background-image: url(./images/title-border.png);background-size:100% 100%;">
-            {{light}}</div>
+        <div style="display: flex;padding: 5px 0;">
+          <div style="font-weight: bold;font-size: 18px;padding: 0 10px;margin-top: 5px;min-width: 75px;">點燈服務</div>
+          <div style="display: flex;flex-wrap: wrap;">
+
+            <div v-for="light in lights"
+              style="font-weight: bold;font-size: 18px;color: #AD6C53;padding: 2px 15px;margin: 5px 5px;background-image: url(./images/title-border.png);background-size:100% 100%;">
+              {{light}}</div>
+          </div>
         </div>
 
         <div style="font-weight: bold;font-size: 14px;padding: 10px 10px;">《文玄企業》 （一）線上點燈，瞬間尋燈。 點燈註冊後，立即可以在手機尋得自己註明的燈位。
@@ -194,11 +246,23 @@
           （二）每周三、四整日，僧人唸誦普賢行《文玄企業》 （一）線上點燈，瞬間尋燈。 點燈註冊後，立即可以在手機尋得自己註明的燈位。 （二）每周三、四整日，僧人唸誦普賢行《文玄企業》 （一）線上點燈，瞬間尋燈。
           點燈註冊後，立即可以在手機尋得自己註明的燈位。 （二）每周三、四整日，僧人唸誦普賢行《文玄企業》 （一）線上點燈，瞬間尋燈。 點燈註冊後，立即可以在手機尋得自己註明的燈位。 （二）每周三、四整日，僧人唸誦普賢行
         </div>
+
+        <div class="button-group">
+          <button class="login-button">在線點燈</button>
+          <button class="login-button">捐贈香油錢</button>
+        </div>
       </div>
 
     </div>
   </main>
-
+  <footer class="footer-menu-container">
+    <div class="footer-menu">
+      <div>寺廟介紹</div>
+      <div>我的明燈</div>
+      <div>活動信息</div>
+      <div>寺廟介紹</div>
+    </div>
+  </footer>
   <script>
     new Vue({
       el: '#app',
